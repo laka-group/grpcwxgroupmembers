@@ -26,131 +26,688 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// 定义 Req 消息结构
-type Sql struct {
+// 定义 SelectGroupMembersOrm 消息结构
+type SelectGroupMembersOrm struct {
 	// 类型 字段 = 标识号
-	Where                string   `protobuf:"bytes,1,opt,name=Where,proto3" json:"Where,omitempty"`
-	Select               string   `protobuf:"bytes,2,opt,name=Select,proto3" json:"Select,omitempty"`
-	GroupBy              string   `protobuf:"bytes,3,opt,name=GroupBy,proto3" json:"GroupBy,omitempty"`
-	OrderBy              string   `protobuf:"bytes,4,opt,name=OrderBy,proto3" json:"OrderBy,omitempty"`
+	GroupIdIn            []string `protobuf:"bytes,1,rep,name=GroupIdIn,proto3" json:"GroupIdIn,omitempty"`
+	WxidIn               []string `protobuf:"bytes,2,rep,name=WxidIn,proto3" json:"WxidIn,omitempty"`
+	Select               string   `protobuf:"bytes,3,opt,name=Select,proto3" json:"Select,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Sql) Reset()         { *m = Sql{} }
-func (m *Sql) String() string { return proto.CompactTextString(m) }
-func (*Sql) ProtoMessage()    {}
-func (*Sql) Descriptor() ([]byte, []int) {
+func (m *SelectGroupMembersOrm) Reset()         { *m = SelectGroupMembersOrm{} }
+func (m *SelectGroupMembersOrm) String() string { return proto.CompactTextString(m) }
+func (*SelectGroupMembersOrm) ProtoMessage()    {}
+func (*SelectGroupMembersOrm) Descriptor() ([]byte, []int) {
 	return fileDescriptor_50b77da89bba893c, []int{0}
 }
 
-func (m *Sql) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Sql.Unmarshal(m, b)
+func (m *SelectGroupMembersOrm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SelectGroupMembersOrm.Unmarshal(m, b)
 }
-func (m *Sql) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Sql.Marshal(b, m, deterministic)
+func (m *SelectGroupMembersOrm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SelectGroupMembersOrm.Marshal(b, m, deterministic)
 }
-func (m *Sql) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Sql.Merge(m, src)
+func (m *SelectGroupMembersOrm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SelectGroupMembersOrm.Merge(m, src)
 }
-func (m *Sql) XXX_Size() int {
-	return xxx_messageInfo_Sql.Size(m)
+func (m *SelectGroupMembersOrm) XXX_Size() int {
+	return xxx_messageInfo_SelectGroupMembersOrm.Size(m)
 }
-func (m *Sql) XXX_DiscardUnknown() {
-	xxx_messageInfo_Sql.DiscardUnknown(m)
+func (m *SelectGroupMembersOrm) XXX_DiscardUnknown() {
+	xxx_messageInfo_SelectGroupMembersOrm.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Sql proto.InternalMessageInfo
+var xxx_messageInfo_SelectGroupMembersOrm proto.InternalMessageInfo
 
-func (m *Sql) GetWhere() string {
+func (m *SelectGroupMembersOrm) GetGroupIdIn() []string {
 	if m != nil {
-		return m.Where
+		return m.GroupIdIn
 	}
-	return ""
+	return nil
 }
 
-func (m *Sql) GetSelect() string {
+func (m *SelectGroupMembersOrm) GetWxidIn() []string {
+	if m != nil {
+		return m.WxidIn
+	}
+	return nil
+}
+
+func (m *SelectGroupMembersOrm) GetSelect() string {
 	if m != nil {
 		return m.Select
 	}
 	return ""
 }
 
-func (m *Sql) GetGroupBy() string {
-	if m != nil {
-		return m.GroupBy
-	}
-	return ""
-}
-
-func (m *Sql) GetOrderBy() string {
-	if m != nil {
-		return m.OrderBy
-	}
-	return ""
-}
-
-// 定义 Res 消息结构
-type Res struct {
-	Rows                 string   `protobuf:"bytes,1,opt,name=rows,proto3" json:"rows,omitempty"`
+type SelectGroupIdsOrm struct {
+	// 类型 字段 = 标识号
+	WxidIn               []string `protobuf:"bytes,2,rep,name=WxidIn,proto3" json:"WxidIn,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Res) Reset()         { *m = Res{} }
-func (m *Res) String() string { return proto.CompactTextString(m) }
-func (*Res) ProtoMessage()    {}
-func (*Res) Descriptor() ([]byte, []int) {
+func (m *SelectGroupIdsOrm) Reset()         { *m = SelectGroupIdsOrm{} }
+func (m *SelectGroupIdsOrm) String() string { return proto.CompactTextString(m) }
+func (*SelectGroupIdsOrm) ProtoMessage()    {}
+func (*SelectGroupIdsOrm) Descriptor() ([]byte, []int) {
 	return fileDescriptor_50b77da89bba893c, []int{1}
 }
 
-func (m *Res) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Res.Unmarshal(m, b)
+func (m *SelectGroupIdsOrm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SelectGroupIdsOrm.Unmarshal(m, b)
 }
-func (m *Res) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Res.Marshal(b, m, deterministic)
+func (m *SelectGroupIdsOrm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SelectGroupIdsOrm.Marshal(b, m, deterministic)
 }
-func (m *Res) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Res.Merge(m, src)
+func (m *SelectGroupIdsOrm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SelectGroupIdsOrm.Merge(m, src)
 }
-func (m *Res) XXX_Size() int {
-	return xxx_messageInfo_Res.Size(m)
+func (m *SelectGroupIdsOrm) XXX_Size() int {
+	return xxx_messageInfo_SelectGroupIdsOrm.Size(m)
 }
-func (m *Res) XXX_DiscardUnknown() {
-	xxx_messageInfo_Res.DiscardUnknown(m)
+func (m *SelectGroupIdsOrm) XXX_DiscardUnknown() {
+	xxx_messageInfo_SelectGroupIdsOrm.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Res proto.InternalMessageInfo
+var xxx_messageInfo_SelectGroupIdsOrm proto.InternalMessageInfo
 
-func (m *Res) GetRows() string {
+func (m *SelectGroupIdsOrm) GetWxidIn() []string {
 	if m != nil {
-		return m.Rows
+		return m.WxidIn
+	}
+	return nil
+}
+
+type UpdateGroupMembersOrm struct {
+	GroupMemberSlice     []*TableGroupMembers `protobuf:"bytes,1,rep,name=GroupMemberSlice,proto3" json:"GroupMemberSlice,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *UpdateGroupMembersOrm) Reset()         { *m = UpdateGroupMembersOrm{} }
+func (m *UpdateGroupMembersOrm) String() string { return proto.CompactTextString(m) }
+func (*UpdateGroupMembersOrm) ProtoMessage()    {}
+func (*UpdateGroupMembersOrm) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{2}
+}
+
+func (m *UpdateGroupMembersOrm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateGroupMembersOrm.Unmarshal(m, b)
+}
+func (m *UpdateGroupMembersOrm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateGroupMembersOrm.Marshal(b, m, deterministic)
+}
+func (m *UpdateGroupMembersOrm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateGroupMembersOrm.Merge(m, src)
+}
+func (m *UpdateGroupMembersOrm) XXX_Size() int {
+	return xxx_messageInfo_UpdateGroupMembersOrm.Size(m)
+}
+func (m *UpdateGroupMembersOrm) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateGroupMembersOrm.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateGroupMembersOrm proto.InternalMessageInfo
+
+func (m *UpdateGroupMembersOrm) GetGroupMemberSlice() []*TableGroupMembers {
+	if m != nil {
+		return m.GroupMemberSlice
+	}
+	return nil
+}
+
+type InsertGroupMembersOrm struct {
+	GroupMemberSlice     []*TableGroupMembers `protobuf:"bytes,1,rep,name=GroupMemberSlice,proto3" json:"GroupMemberSlice,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *InsertGroupMembersOrm) Reset()         { *m = InsertGroupMembersOrm{} }
+func (m *InsertGroupMembersOrm) String() string { return proto.CompactTextString(m) }
+func (*InsertGroupMembersOrm) ProtoMessage()    {}
+func (*InsertGroupMembersOrm) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{3}
+}
+
+func (m *InsertGroupMembersOrm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InsertGroupMembersOrm.Unmarshal(m, b)
+}
+func (m *InsertGroupMembersOrm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InsertGroupMembersOrm.Marshal(b, m, deterministic)
+}
+func (m *InsertGroupMembersOrm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InsertGroupMembersOrm.Merge(m, src)
+}
+func (m *InsertGroupMembersOrm) XXX_Size() int {
+	return xxx_messageInfo_InsertGroupMembersOrm.Size(m)
+}
+func (m *InsertGroupMembersOrm) XXX_DiscardUnknown() {
+	xxx_messageInfo_InsertGroupMembersOrm.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InsertGroupMembersOrm proto.InternalMessageInfo
+
+func (m *InsertGroupMembersOrm) GetGroupMemberSlice() []*TableGroupMembers {
+	if m != nil {
+		return m.GroupMemberSlice
+	}
+	return nil
+}
+
+type DeleteGroupContactOrm struct {
+	GroupIdSlice         []string `protobuf:"bytes,1,rep,name=GroupIdSlice,proto3" json:"GroupIdSlice,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteGroupContactOrm) Reset()         { *m = DeleteGroupContactOrm{} }
+func (m *DeleteGroupContactOrm) String() string { return proto.CompactTextString(m) }
+func (*DeleteGroupContactOrm) ProtoMessage()    {}
+func (*DeleteGroupContactOrm) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{4}
+}
+
+func (m *DeleteGroupContactOrm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteGroupContactOrm.Unmarshal(m, b)
+}
+func (m *DeleteGroupContactOrm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteGroupContactOrm.Marshal(b, m, deterministic)
+}
+func (m *DeleteGroupContactOrm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteGroupContactOrm.Merge(m, src)
+}
+func (m *DeleteGroupContactOrm) XXX_Size() int {
+	return xxx_messageInfo_DeleteGroupContactOrm.Size(m)
+}
+func (m *DeleteGroupContactOrm) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteGroupContactOrm.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteGroupContactOrm proto.InternalMessageInfo
+
+func (m *DeleteGroupContactOrm) GetGroupIdSlice() []string {
+	if m != nil {
+		return m.GroupIdSlice
+	}
+	return nil
+}
+
+type InsertGroupContactOrm struct {
+	GroupIdSlice         []string `protobuf:"bytes,1,rep,name=GroupIdSlice,proto3" json:"GroupIdSlice,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InsertGroupContactOrm) Reset()         { *m = InsertGroupContactOrm{} }
+func (m *InsertGroupContactOrm) String() string { return proto.CompactTextString(m) }
+func (*InsertGroupContactOrm) ProtoMessage()    {}
+func (*InsertGroupContactOrm) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{5}
+}
+
+func (m *InsertGroupContactOrm) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InsertGroupContactOrm.Unmarshal(m, b)
+}
+func (m *InsertGroupContactOrm) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InsertGroupContactOrm.Marshal(b, m, deterministic)
+}
+func (m *InsertGroupContactOrm) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InsertGroupContactOrm.Merge(m, src)
+}
+func (m *InsertGroupContactOrm) XXX_Size() int {
+	return xxx_messageInfo_InsertGroupContactOrm.Size(m)
+}
+func (m *InsertGroupContactOrm) XXX_DiscardUnknown() {
+	xxx_messageInfo_InsertGroupContactOrm.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InsertGroupContactOrm proto.InternalMessageInfo
+
+func (m *InsertGroupContactOrm) GetGroupIdSlice() []string {
+	if m != nil {
+		return m.GroupIdSlice
+	}
+	return nil
+}
+
+type SelectGroupMembersRes struct {
+	Code                 int64                `protobuf:"varint,1,opt,name=Code,proto3" json:"Code,omitempty"`
+	GroupMemberSlice     []*TableGroupMembers `protobuf:"bytes,2,rep,name=groupMemberSlice,proto3" json:"groupMemberSlice,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *SelectGroupMembersRes) Reset()         { *m = SelectGroupMembersRes{} }
+func (m *SelectGroupMembersRes) String() string { return proto.CompactTextString(m) }
+func (*SelectGroupMembersRes) ProtoMessage()    {}
+func (*SelectGroupMembersRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{6}
+}
+
+func (m *SelectGroupMembersRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SelectGroupMembersRes.Unmarshal(m, b)
+}
+func (m *SelectGroupMembersRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SelectGroupMembersRes.Marshal(b, m, deterministic)
+}
+func (m *SelectGroupMembersRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SelectGroupMembersRes.Merge(m, src)
+}
+func (m *SelectGroupMembersRes) XXX_Size() int {
+	return xxx_messageInfo_SelectGroupMembersRes.Size(m)
+}
+func (m *SelectGroupMembersRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_SelectGroupMembersRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SelectGroupMembersRes proto.InternalMessageInfo
+
+func (m *SelectGroupMembersRes) GetCode() int64 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+func (m *SelectGroupMembersRes) GetGroupMemberSlice() []*TableGroupMembers {
+	if m != nil {
+		return m.GroupMemberSlice
+	}
+	return nil
+}
+
+type SelectGroupIdsRes struct {
+	Code                 int64    `protobuf:"varint,1,opt,name=Code,proto3" json:"Code,omitempty"`
+	GroupIdSlice         []string `protobuf:"bytes,2,rep,name=groupIdSlice,proto3" json:"groupIdSlice,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SelectGroupIdsRes) Reset()         { *m = SelectGroupIdsRes{} }
+func (m *SelectGroupIdsRes) String() string { return proto.CompactTextString(m) }
+func (*SelectGroupIdsRes) ProtoMessage()    {}
+func (*SelectGroupIdsRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{7}
+}
+
+func (m *SelectGroupIdsRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SelectGroupIdsRes.Unmarshal(m, b)
+}
+func (m *SelectGroupIdsRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SelectGroupIdsRes.Marshal(b, m, deterministic)
+}
+func (m *SelectGroupIdsRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SelectGroupIdsRes.Merge(m, src)
+}
+func (m *SelectGroupIdsRes) XXX_Size() int {
+	return xxx_messageInfo_SelectGroupIdsRes.Size(m)
+}
+func (m *SelectGroupIdsRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_SelectGroupIdsRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SelectGroupIdsRes proto.InternalMessageInfo
+
+func (m *SelectGroupIdsRes) GetCode() int64 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+func (m *SelectGroupIdsRes) GetGroupIdSlice() []string {
+	if m != nil {
+		return m.GroupIdSlice
+	}
+	return nil
+}
+
+type UpdateGroupMembersRes struct {
+	Code                 int64    `protobuf:"varint,1,opt,name=Code,proto3" json:"Code,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UpdateGroupMembersRes) Reset()         { *m = UpdateGroupMembersRes{} }
+func (m *UpdateGroupMembersRes) String() string { return proto.CompactTextString(m) }
+func (*UpdateGroupMembersRes) ProtoMessage()    {}
+func (*UpdateGroupMembersRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{8}
+}
+
+func (m *UpdateGroupMembersRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateGroupMembersRes.Unmarshal(m, b)
+}
+func (m *UpdateGroupMembersRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateGroupMembersRes.Marshal(b, m, deterministic)
+}
+func (m *UpdateGroupMembersRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateGroupMembersRes.Merge(m, src)
+}
+func (m *UpdateGroupMembersRes) XXX_Size() int {
+	return xxx_messageInfo_UpdateGroupMembersRes.Size(m)
+}
+func (m *UpdateGroupMembersRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateGroupMembersRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateGroupMembersRes proto.InternalMessageInfo
+
+func (m *UpdateGroupMembersRes) GetCode() int64 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+type InsertGroupMembersRes struct {
+	Code                 int64    `protobuf:"varint,1,opt,name=Code,proto3" json:"Code,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InsertGroupMembersRes) Reset()         { *m = InsertGroupMembersRes{} }
+func (m *InsertGroupMembersRes) String() string { return proto.CompactTextString(m) }
+func (*InsertGroupMembersRes) ProtoMessage()    {}
+func (*InsertGroupMembersRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{9}
+}
+
+func (m *InsertGroupMembersRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InsertGroupMembersRes.Unmarshal(m, b)
+}
+func (m *InsertGroupMembersRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InsertGroupMembersRes.Marshal(b, m, deterministic)
+}
+func (m *InsertGroupMembersRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InsertGroupMembersRes.Merge(m, src)
+}
+func (m *InsertGroupMembersRes) XXX_Size() int {
+	return xxx_messageInfo_InsertGroupMembersRes.Size(m)
+}
+func (m *InsertGroupMembersRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_InsertGroupMembersRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InsertGroupMembersRes proto.InternalMessageInfo
+
+func (m *InsertGroupMembersRes) GetCode() int64 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+type DeleteGroupContactRes struct {
+	Code                 int64    `protobuf:"varint,1,opt,name=Code,proto3" json:"Code,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteGroupContactRes) Reset()         { *m = DeleteGroupContactRes{} }
+func (m *DeleteGroupContactRes) String() string { return proto.CompactTextString(m) }
+func (*DeleteGroupContactRes) ProtoMessage()    {}
+func (*DeleteGroupContactRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{10}
+}
+
+func (m *DeleteGroupContactRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteGroupContactRes.Unmarshal(m, b)
+}
+func (m *DeleteGroupContactRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteGroupContactRes.Marshal(b, m, deterministic)
+}
+func (m *DeleteGroupContactRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteGroupContactRes.Merge(m, src)
+}
+func (m *DeleteGroupContactRes) XXX_Size() int {
+	return xxx_messageInfo_DeleteGroupContactRes.Size(m)
+}
+func (m *DeleteGroupContactRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteGroupContactRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteGroupContactRes proto.InternalMessageInfo
+
+func (m *DeleteGroupContactRes) GetCode() int64 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+type InsertGroupContactRes struct {
+	Code                 int64    `protobuf:"varint,1,opt,name=Code,proto3" json:"Code,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InsertGroupContactRes) Reset()         { *m = InsertGroupContactRes{} }
+func (m *InsertGroupContactRes) String() string { return proto.CompactTextString(m) }
+func (*InsertGroupContactRes) ProtoMessage()    {}
+func (*InsertGroupContactRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{11}
+}
+
+func (m *InsertGroupContactRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InsertGroupContactRes.Unmarshal(m, b)
+}
+func (m *InsertGroupContactRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InsertGroupContactRes.Marshal(b, m, deterministic)
+}
+func (m *InsertGroupContactRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InsertGroupContactRes.Merge(m, src)
+}
+func (m *InsertGroupContactRes) XXX_Size() int {
+	return xxx_messageInfo_InsertGroupContactRes.Size(m)
+}
+func (m *InsertGroupContactRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_InsertGroupContactRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InsertGroupContactRes proto.InternalMessageInfo
+
+func (m *InsertGroupContactRes) GetCode() int64 {
+	if m != nil {
+		return m.Code
+	}
+	return 0
+}
+
+type UpdateTableGroupMembers struct {
+	GroupMembers         *TableGroupMembers `protobuf:"bytes,1,opt,name=GroupMembers,proto3" json:"GroupMembers,omitempty"`
+	UpdateFields         []string           `protobuf:"bytes,2,rep,name=UpdateFields,proto3" json:"UpdateFields,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
+}
+
+func (m *UpdateTableGroupMembers) Reset()         { *m = UpdateTableGroupMembers{} }
+func (m *UpdateTableGroupMembers) String() string { return proto.CompactTextString(m) }
+func (*UpdateTableGroupMembers) ProtoMessage()    {}
+func (*UpdateTableGroupMembers) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{12}
+}
+
+func (m *UpdateTableGroupMembers) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateTableGroupMembers.Unmarshal(m, b)
+}
+func (m *UpdateTableGroupMembers) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateTableGroupMembers.Marshal(b, m, deterministic)
+}
+func (m *UpdateTableGroupMembers) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateTableGroupMembers.Merge(m, src)
+}
+func (m *UpdateTableGroupMembers) XXX_Size() int {
+	return xxx_messageInfo_UpdateTableGroupMembers.Size(m)
+}
+func (m *UpdateTableGroupMembers) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateTableGroupMembers.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateTableGroupMembers proto.InternalMessageInfo
+
+func (m *UpdateTableGroupMembers) GetGroupMembers() *TableGroupMembers {
+	if m != nil {
+		return m.GroupMembers
+	}
+	return nil
+}
+
+func (m *UpdateTableGroupMembers) GetUpdateFields() []string {
+	if m != nil {
+		return m.UpdateFields
+	}
+	return nil
+}
+
+type TableGroupMembers struct {
+	GroupId              string   `protobuf:"bytes,1,opt,name=GroupId,proto3" json:"GroupId,omitempty"`
+	Wxid                 string   `protobuf:"bytes,2,opt,name=Wxid,proto3" json:"Wxid,omitempty"`
+	Nickname             string   `protobuf:"bytes,3,opt,name=Nickname,proto3" json:"Nickname,omitempty"`
+	CreateTime           int64    `protobuf:"varint,4,opt,name=CreateTime,proto3" json:"CreateTime,omitempty"`
+	Flag                 int64    `protobuf:"varint,5,opt,name=Flag,proto3" json:"Flag,omitempty"`
+	Status               int64    `protobuf:"varint,6,opt,name=Status,proto3" json:"Status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *TableGroupMembers) Reset()         { *m = TableGroupMembers{} }
+func (m *TableGroupMembers) String() string { return proto.CompactTextString(m) }
+func (*TableGroupMembers) ProtoMessage()    {}
+func (*TableGroupMembers) Descriptor() ([]byte, []int) {
+	return fileDescriptor_50b77da89bba893c, []int{13}
+}
+
+func (m *TableGroupMembers) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TableGroupMembers.Unmarshal(m, b)
+}
+func (m *TableGroupMembers) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TableGroupMembers.Marshal(b, m, deterministic)
+}
+func (m *TableGroupMembers) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TableGroupMembers.Merge(m, src)
+}
+func (m *TableGroupMembers) XXX_Size() int {
+	return xxx_messageInfo_TableGroupMembers.Size(m)
+}
+func (m *TableGroupMembers) XXX_DiscardUnknown() {
+	xxx_messageInfo_TableGroupMembers.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TableGroupMembers proto.InternalMessageInfo
+
+func (m *TableGroupMembers) GetGroupId() string {
+	if m != nil {
+		return m.GroupId
 	}
 	return ""
 }
 
+func (m *TableGroupMembers) GetWxid() string {
+	if m != nil {
+		return m.Wxid
+	}
+	return ""
+}
+
+func (m *TableGroupMembers) GetNickname() string {
+	if m != nil {
+		return m.Nickname
+	}
+	return ""
+}
+
+func (m *TableGroupMembers) GetCreateTime() int64 {
+	if m != nil {
+		return m.CreateTime
+	}
+	return 0
+}
+
+func (m *TableGroupMembers) GetFlag() int64 {
+	if m != nil {
+		return m.Flag
+	}
+	return 0
+}
+
+func (m *TableGroupMembers) GetStatus() int64 {
+	if m != nil {
+		return m.Status
+	}
+	return 0
+}
+
 func init() {
-	proto.RegisterType((*Sql)(nil), "grpcwxgroupmembers.Sql")
-	proto.RegisterType((*Res)(nil), "grpcwxgroupmembers.Res")
+	proto.RegisterType((*SelectGroupMembersOrm)(nil), "grpcwxgroupmembers.SelectGroupMembersOrm")
+	proto.RegisterType((*SelectGroupIdsOrm)(nil), "grpcwxgroupmembers.SelectGroupIdsOrm")
+	proto.RegisterType((*UpdateGroupMembersOrm)(nil), "grpcwxgroupmembers.UpdateGroupMembersOrm")
+	proto.RegisterType((*InsertGroupMembersOrm)(nil), "grpcwxgroupmembers.InsertGroupMembersOrm")
+	proto.RegisterType((*DeleteGroupContactOrm)(nil), "grpcwxgroupmembers.DeleteGroupContactOrm")
+	proto.RegisterType((*InsertGroupContactOrm)(nil), "grpcwxgroupmembers.InsertGroupContactOrm")
+	proto.RegisterType((*SelectGroupMembersRes)(nil), "grpcwxgroupmembers.SelectGroupMembersRes")
+	proto.RegisterType((*SelectGroupIdsRes)(nil), "grpcwxgroupmembers.SelectGroupIdsRes")
+	proto.RegisterType((*UpdateGroupMembersRes)(nil), "grpcwxgroupmembers.UpdateGroupMembersRes")
+	proto.RegisterType((*InsertGroupMembersRes)(nil), "grpcwxgroupmembers.InsertGroupMembersRes")
+	proto.RegisterType((*DeleteGroupContactRes)(nil), "grpcwxgroupmembers.DeleteGroupContactRes")
+	proto.RegisterType((*InsertGroupContactRes)(nil), "grpcwxgroupmembers.InsertGroupContactRes")
+	proto.RegisterType((*UpdateTableGroupMembers)(nil), "grpcwxgroupmembers.UpdateTableGroupMembers")
+	proto.RegisterType((*TableGroupMembers)(nil), "grpcwxgroupmembers.TableGroupMembers")
 }
 
 func init() { proto.RegisterFile("grpcwxgroupmembers.proto", fileDescriptor_50b77da89bba893c) }
 
 var fileDescriptor_50b77da89bba893c = []byte{
-	// 176 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x8f, 0x3d, 0x0f, 0x82, 0x50,
-	0x0c, 0x45, 0x45, 0x3e, 0x8c, 0x1d, 0x1b, 0xa3, 0xd5, 0xc9, 0x30, 0x39, 0x31, 0xe8, 0xea, 0x44,
-	0x62, 0x1c, 0x8d, 0x30, 0xb8, 0x83, 0x0d, 0x0e, 0x90, 0x07, 0x7d, 0x10, 0xe4, 0xdf, 0x1b, 0x1e,
-	0x30, 0xc9, 0xd6, 0xd3, 0x93, 0xdc, 0x9b, 0x0b, 0x94, 0x49, 0x99, 0xb6, 0xdf, 0x4c, 0x54, 0x53,
-	0x16, 0x5c, 0x24, 0x2c, 0x3a, 0x28, 0x45, 0xd5, 0x0a, 0xf1, 0xdf, 0xf8, 0x19, 0xd8, 0x71, 0x95,
-	0xe3, 0x06, 0xdc, 0xd7, 0x87, 0x85, 0xc9, 0x3a, 0x5a, 0xa7, 0x75, 0x34, 0x00, 0x6e, 0xc1, 0x8b,
-	0x39, 0xe7, 0xb4, 0xa6, 0xa5, 0x79, 0x8f, 0x84, 0x04, 0xab, 0x7b, 0x1f, 0x12, 0x76, 0x64, 0x1b,
-	0x31, 0x61, 0x6f, 0x1e, 0xf2, 0x66, 0x09, 0x3b, 0x72, 0x06, 0x33, 0xa2, 0xbf, 0x07, 0x3b, 0x62,
-	0x8d, 0x08, 0x8e, 0xa8, 0x56, 0x8f, 0x3d, 0xe6, 0x3e, 0xdf, 0xc0, 0x7d, 0x36, 0x2c, 0x1d, 0x5e,
-	0xa7, 0x3e, 0xdc, 0x05, 0x33, 0x2b, 0xe2, 0x2a, 0x3f, 0xcc, 0x8a, 0x88, 0xb5, 0xbf, 0x48, 0x3c,
-	0xb3, 0xf2, 0xf2, 0x0b, 0x00, 0x00, 0xff, 0xff, 0x41, 0x81, 0xad, 0x48, 0x01, 0x01, 0x00, 0x00,
+	// 503 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0xc5, 0x49, 0x13, 0xc8, 0x50, 0x21, 0xba, 0x52, 0xc0, 0xb2, 0x10, 0xaa, 0x56, 0xaa, 0x54,
+	0x54, 0xa9, 0x87, 0x72, 0xe4, 0x18, 0x54, 0x64, 0x21, 0x40, 0x75, 0x41, 0x5c, 0x71, 0xec, 0x91,
+	0x65, 0xb0, 0xe3, 0x68, 0xbd, 0x11, 0xe5, 0xc2, 0x99, 0x1b, 0xdf, 0xc1, 0x5f, 0xa2, 0xd9, 0xdd,
+	0xa6, 0x76, 0x76, 0xd3, 0x6e, 0x2e, 0xbd, 0x79, 0xde, 0xce, 0xcc, 0xdb, 0x37, 0x33, 0x3b, 0x86,
+	0xb0, 0x10, 0xcb, 0xec, 0xe7, 0x55, 0x21, 0x9a, 0xd5, 0xb2, 0xc6, 0x7a, 0x8e, 0xa2, 0x3d, 0x5d,
+	0x8a, 0x46, 0x36, 0x8c, 0xd9, 0x27, 0x1c, 0x61, 0x7a, 0x89, 0x15, 0x66, 0xf2, 0x1d, 0xa1, 0x1f,
+	0x34, 0xfa, 0x49, 0xd4, 0xec, 0x05, 0x4c, 0x14, 0x14, 0xe7, 0xf1, 0x22, 0x0c, 0x0e, 0x87, 0xc7,
+	0x93, 0xe4, 0x06, 0x60, 0xcf, 0x60, 0xfc, 0xf5, 0xaa, 0xa4, 0xa3, 0x81, 0x3a, 0x32, 0x16, 0xe1,
+	0x3a, 0x5d, 0x38, 0x3c, 0x0c, 0x08, 0xd7, 0x16, 0x3f, 0x81, 0x83, 0x0e, 0x4d, 0x9c, 0x2b, 0x8a,
+	0x2d, 0x49, 0xf8, 0x77, 0x98, 0x7e, 0x59, 0xe6, 0xa9, 0xc4, 0xcd, 0x3b, 0x5d, 0xc0, 0xd3, 0x0e,
+	0x74, 0x59, 0x95, 0x19, 0xaa, 0xab, 0x3d, 0x3e, 0x3b, 0x3a, 0x75, 0xa8, 0xfe, 0x9c, 0xce, 0xab,
+	0x5e, 0x8e, 0xc4, 0x0a, 0x27, 0xae, 0x78, 0xd1, 0xa2, 0x90, 0xf7, 0xc0, 0xf5, 0x06, 0xa6, 0x6f,
+	0xb1, 0x42, 0xa3, 0x6b, 0xd6, 0x2c, 0x64, 0x9a, 0x49, 0xe2, 0xe2, 0xb0, 0x6f, 0xea, 0x72, 0xc3,
+	0x33, 0x49, 0x7a, 0x18, 0x05, 0x77, 0x2e, 0xba, 0x63, 0xf0, 0x6f, 0x57, 0x97, 0x13, 0x6c, 0x19,
+	0x83, 0xbd, 0x59, 0x93, 0x53, 0x50, 0x70, 0x3c, 0x4c, 0xd4, 0x37, 0x29, 0x2f, 0x36, 0x95, 0x0f,
+	0x76, 0x52, 0xbe, 0x19, 0xce, 0xdf, 0x6f, 0xb6, 0x7f, 0x1b, 0x37, 0x87, 0xfd, 0xa2, 0x2b, 0x46,
+	0x0f, 0x46, 0x0f, 0xe3, 0x27, 0xae, 0xf1, 0xd8, 0x92, 0x90, 0x9c, 0xed, 0xfe, 0xde, 0xe2, 0x6c,
+	0x37, 0xc8, 0x2f, 0xf3, 0x1d, 0xce, 0x7f, 0x02, 0x78, 0xae, 0x2f, 0x6d, 0x95, 0x8b, 0xc5, 0xa6,
+	0x81, 0xc6, 0x56, 0x71, 0xde, 0xb5, 0xee, 0x85, 0x52, 0xf9, 0x34, 0xcb, 0x79, 0x89, 0x55, 0xde,
+	0x5e, 0x97, 0xaf, 0x8b, 0xf1, 0x7f, 0x01, 0x1c, 0xd8, 0x97, 0x08, 0xe1, 0xa1, 0xe9, 0x8d, 0xe2,
+	0x9f, 0x24, 0xd7, 0x26, 0xc9, 0xa1, 0x77, 0x19, 0x0e, 0x14, 0xac, 0xbe, 0x59, 0x04, 0x8f, 0x3e,
+	0x96, 0xd9, 0x8f, 0x45, 0x5a, 0xa3, 0x79, 0xe8, 0x6b, 0x9b, 0xbd, 0x04, 0x98, 0x09, 0x24, 0xa5,
+	0x65, 0x8d, 0xe1, 0x9e, 0x2a, 0x42, 0x07, 0xa1, 0x7c, 0xe7, 0x55, 0x5a, 0x84, 0x23, 0x5d, 0x1e,
+	0xfa, 0x56, 0x6b, 0x43, 0xa6, 0x72, 0xd5, 0x86, 0x63, 0x85, 0x1a, 0xeb, 0xec, 0xef, 0x08, 0x46,
+	0x17, 0x2b, 0x14, 0xbf, 0x58, 0x05, 0xcc, 0x9e, 0x60, 0xf6, 0xca, 0x55, 0x24, 0xe7, 0x3e, 0x8b,
+	0x3c, 0x5d, 0x13, 0x6c, 0xf9, 0x03, 0xf6, 0x0d, 0x9e, 0xf4, 0xe7, 0x95, 0x1d, 0xdd, 0x11, 0xae,
+	0x57, 0x5a, 0xe4, 0xe1, 0xa6, 0x19, 0x2a, 0x60, 0xf6, 0x10, 0xbb, 0xf5, 0x38, 0x77, 0x61, 0xe4,
+	0xe9, 0xba, 0x66, 0xb3, 0x5f, 0x81, 0x9b, 0xcd, 0xb9, 0x0d, 0x23, 0x4f, 0xd7, 0x35, 0x9b, 0xfd,
+	0x8c, 0xdc, 0x6c, 0xce, 0x7d, 0x18, 0x79, 0xba, 0xba, 0xb4, 0xdd, 0xca, 0xe6, 0x5c, 0xa0, 0x91,
+	0xa7, 0xab, 0x62, 0x9b, 0x8f, 0xd5, 0xaf, 0xf4, 0xf5, 0xff, 0x00, 0x00, 0x00, 0xff, 0xff, 0x06,
+	0x66, 0x92, 0xef, 0x66, 0x07, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -165,9 +722,13 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
-	// 定义接口 (结构体可以复用)
-	// 方法 (请求消息结构体) returns (返回消息结构体) {}
-	Select(ctx context.Context, in *Sql, opts ...grpc.CallOption) (*Res, error)
+	// 返回的结构体都有一个Code的key，值为0则正常，非0就需要排查问题程序报错
+	SelectGroupMembers(ctx context.Context, in *SelectGroupMembersOrm, opts ...grpc.CallOption) (*SelectGroupMembersRes, error)
+	SelectGroupIds(ctx context.Context, in *SelectGroupIdsOrm, opts ...grpc.CallOption) (*SelectGroupIdsRes, error)
+	UpdateGroupMembers(ctx context.Context, in *UpdateGroupMembersOrm, opts ...grpc.CallOption) (*UpdateGroupMembersRes, error)
+	InsertGroupMembers(ctx context.Context, in *InsertGroupMembersOrm, opts ...grpc.CallOption) (*InsertGroupMembersRes, error)
+	DeleteGroupContact(ctx context.Context, in *DeleteGroupContactOrm, opts ...grpc.CallOption) (*DeleteGroupContactRes, error)
+	InsertGroupContact(ctx context.Context, in *InsertGroupContactOrm, opts ...grpc.CallOption) (*InsertGroupContactRes, error)
 }
 
 type queryClient struct {
@@ -178,9 +739,54 @@ func NewQueryClient(cc *grpc.ClientConn) QueryClient {
 	return &queryClient{cc}
 }
 
-func (c *queryClient) Select(ctx context.Context, in *Sql, opts ...grpc.CallOption) (*Res, error) {
-	out := new(Res)
-	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/Select", in, out, opts...)
+func (c *queryClient) SelectGroupMembers(ctx context.Context, in *SelectGroupMembersOrm, opts ...grpc.CallOption) (*SelectGroupMembersRes, error) {
+	out := new(SelectGroupMembersRes)
+	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/SelectGroupMembers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) SelectGroupIds(ctx context.Context, in *SelectGroupIdsOrm, opts ...grpc.CallOption) (*SelectGroupIdsRes, error) {
+	out := new(SelectGroupIdsRes)
+	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/SelectGroupIds", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) UpdateGroupMembers(ctx context.Context, in *UpdateGroupMembersOrm, opts ...grpc.CallOption) (*UpdateGroupMembersRes, error) {
+	out := new(UpdateGroupMembersRes)
+	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/UpdateGroupMembers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) InsertGroupMembers(ctx context.Context, in *InsertGroupMembersOrm, opts ...grpc.CallOption) (*InsertGroupMembersRes, error) {
+	out := new(InsertGroupMembersRes)
+	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/InsertGroupMembers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) DeleteGroupContact(ctx context.Context, in *DeleteGroupContactOrm, opts ...grpc.CallOption) (*DeleteGroupContactRes, error) {
+	out := new(DeleteGroupContactRes)
+	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/DeleteGroupContact", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) InsertGroupContact(ctx context.Context, in *InsertGroupContactOrm, opts ...grpc.CallOption) (*InsertGroupContactRes, error) {
+	out := new(InsertGroupContactRes)
+	err := c.cc.Invoke(ctx, "/grpcwxgroupmembers.Query/InsertGroupContact", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -189,37 +795,146 @@ func (c *queryClient) Select(ctx context.Context, in *Sql, opts ...grpc.CallOpti
 
 // QueryServer is the server API for Query service.
 type QueryServer interface {
-	// 定义接口 (结构体可以复用)
-	// 方法 (请求消息结构体) returns (返回消息结构体) {}
-	Select(context.Context, *Sql) (*Res, error)
+	// 返回的结构体都有一个Code的key，值为0则正常，非0就需要排查问题程序报错
+	SelectGroupMembers(context.Context, *SelectGroupMembersOrm) (*SelectGroupMembersRes, error)
+	SelectGroupIds(context.Context, *SelectGroupIdsOrm) (*SelectGroupIdsRes, error)
+	UpdateGroupMembers(context.Context, *UpdateGroupMembersOrm) (*UpdateGroupMembersRes, error)
+	InsertGroupMembers(context.Context, *InsertGroupMembersOrm) (*InsertGroupMembersRes, error)
+	DeleteGroupContact(context.Context, *DeleteGroupContactOrm) (*DeleteGroupContactRes, error)
+	InsertGroupContact(context.Context, *InsertGroupContactOrm) (*InsertGroupContactRes, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
 type UnimplementedQueryServer struct {
 }
 
-func (*UnimplementedQueryServer) Select(ctx context.Context, req *Sql) (*Res, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Select not implemented")
+func (*UnimplementedQueryServer) SelectGroupMembers(ctx context.Context, req *SelectGroupMembersOrm) (*SelectGroupMembersRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectGroupMembers not implemented")
+}
+func (*UnimplementedQueryServer) SelectGroupIds(ctx context.Context, req *SelectGroupIdsOrm) (*SelectGroupIdsRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectGroupIds not implemented")
+}
+func (*UnimplementedQueryServer) UpdateGroupMembers(ctx context.Context, req *UpdateGroupMembersOrm) (*UpdateGroupMembersRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateGroupMembers not implemented")
+}
+func (*UnimplementedQueryServer) InsertGroupMembers(ctx context.Context, req *InsertGroupMembersOrm) (*InsertGroupMembersRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InsertGroupMembers not implemented")
+}
+func (*UnimplementedQueryServer) DeleteGroupContact(ctx context.Context, req *DeleteGroupContactOrm) (*DeleteGroupContactRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteGroupContact not implemented")
+}
+func (*UnimplementedQueryServer) InsertGroupContact(ctx context.Context, req *InsertGroupContactOrm) (*InsertGroupContactRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InsertGroupContact not implemented")
 }
 
 func RegisterQueryServer(s *grpc.Server, srv QueryServer) {
 	s.RegisterService(&_Query_serviceDesc, srv)
 }
 
-func _Query_Select_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Sql)
+func _Query_SelectGroupMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectGroupMembersOrm)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QueryServer).Select(ctx, in)
+		return srv.(QueryServer).SelectGroupMembers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcwxgroupmembers.Query/Select",
+		FullMethod: "/grpcwxgroupmembers.Query/SelectGroupMembers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueryServer).Select(ctx, req.(*Sql))
+		return srv.(QueryServer).SelectGroupMembers(ctx, req.(*SelectGroupMembersOrm))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_SelectGroupIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectGroupIdsOrm)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).SelectGroupIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcwxgroupmembers.Query/SelectGroupIds",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).SelectGroupIds(ctx, req.(*SelectGroupIdsOrm))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_UpdateGroupMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateGroupMembersOrm)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).UpdateGroupMembers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcwxgroupmembers.Query/UpdateGroupMembers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).UpdateGroupMembers(ctx, req.(*UpdateGroupMembersOrm))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_InsertGroupMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InsertGroupMembersOrm)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).InsertGroupMembers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcwxgroupmembers.Query/InsertGroupMembers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).InsertGroupMembers(ctx, req.(*InsertGroupMembersOrm))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_DeleteGroupContact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteGroupContactOrm)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).DeleteGroupContact(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcwxgroupmembers.Query/DeleteGroupContact",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).DeleteGroupContact(ctx, req.(*DeleteGroupContactOrm))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_InsertGroupContact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InsertGroupContactOrm)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).InsertGroupContact(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcwxgroupmembers.Query/InsertGroupContact",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).InsertGroupContact(ctx, req.(*InsertGroupContactOrm))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -229,8 +944,28 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Select",
-			Handler:    _Query_Select_Handler,
+			MethodName: "SelectGroupMembers",
+			Handler:    _Query_SelectGroupMembers_Handler,
+		},
+		{
+			MethodName: "SelectGroupIds",
+			Handler:    _Query_SelectGroupIds_Handler,
+		},
+		{
+			MethodName: "UpdateGroupMembers",
+			Handler:    _Query_UpdateGroupMembers_Handler,
+		},
+		{
+			MethodName: "InsertGroupMembers",
+			Handler:    _Query_InsertGroupMembers_Handler,
+		},
+		{
+			MethodName: "DeleteGroupContact",
+			Handler:    _Query_DeleteGroupContact_Handler,
+		},
+		{
+			MethodName: "InsertGroupContact",
+			Handler:    _Query_InsertGroupContact_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

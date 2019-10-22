@@ -4,7 +4,8 @@ package grpcwxgroupmembers;
 
 // 可以定义多个服务，每个服务内可以定义多个接口
 service Query {
-    // 返回的结构体都有一个Code的key，值为0则正常，非0就需要排查问题程序报错
+    // 定义接口 (结构体可以复用)
+    // 方法 (请求消息结构体) returns (返回消息结构体) {}
     rpc SelectGroupMembers (SelectGroupMembersOrm) returns (SelectGroupMembersRes) {} // 查找群成员
     rpc SelectGroupIds (SelectGroupIdsOrm) returns (SelectGroupIdsRes) {} // 查找wxid拥有的groupIdSlice
     rpc UpdateGroupMembers (UpdateGroupMembersOrm) returns (UpdateGroupMembersRes) {} // 更新群成员记录
@@ -58,10 +59,6 @@ message InsertGroupContactRes {
     int64 Code = 1;
 }
 
-message UpdateTableGroupMembers {
-    TableGroupMembers GroupMembers = 1;
-    repeated string UpdateFields  = 2;
-}
 
 message TableGroupMembers {
     string GroupId = 1;
