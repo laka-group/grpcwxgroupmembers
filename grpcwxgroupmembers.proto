@@ -36,10 +36,12 @@ message InsertGroupMembersOrm {
     repeated TableGroupMembers GroupMemberSlice = 1;
 }
 message DeleteGroupContactOrm {
-    repeated string GroupIdSlice = 1; //需要删除的groupId slice
+    string Wxid = 1; // 指定的wxid
+    string GroupId = 2; //需要删除的groupId
 }
 message InsertGroupContactOrm {
-    repeated string GroupIdSlice = 1; //需要新增的groupId slice
+    string Wxid = 1; // 指定的wxid
+    string GroupId = 2; //需要新增的groupId slice
 }
 
 message SelectGroupMembersRes {
