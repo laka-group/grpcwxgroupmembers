@@ -25,8 +25,13 @@ message SelectGroupIdsOrm {
     repeated string WxidIn = 2; // where条件 wxid in (???)
 }
 message UpdateGroupMembersOrm {
-    repeated TableGroupMembers GroupMemberSlice = 1; // 默认使用里面的 group_id = ? and wxid = ?作为where条件，更新其余字段
+    repeated UpdateGroupMembersWithField GroupMemberSlice = 1;
 }
+message UpdateGroupMembersWithField {
+    TableGroupMembers TableGroupMember = 1; // 默认使用里面的 group_id = ? and wxid = ?作为where条件，更新其余字段
+    repeated string UpdateFieldSlice = 2;
+}
+
 message InsertGroupMembersOrm {
     repeated TableGroupMembers GroupMemberSlice = 1;
 }
@@ -38,11 +43,9 @@ message InsertGroupContactOrm {
 }
 
 message SelectGroupMembersRes {
-    int64 Code = 1;
     repeated TableGroupMembers groupMemberSlice = 2;
 }
 message SelectGroupIdsRes {
-    int64 Code = 1;
     repeated string groupIdSlice = 2;
 }
 message UpdateGroupMembersRes {
