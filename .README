@@ -1,2 +1,4 @@
 // 创建命令
 protoc -I ./ ./grpcwxgroupmembers.proto --go_out=plugins=grpc:./
+// 带有micro
+protoc --proto_path=D:\legou_zhongbao\src\grpcwxgroupmembers --micro_out=. --go_out=. grpcwxgroupmembers.proto
