@@ -3,7 +3,7 @@
 
 // 定义包名
 
-package grpcwxgroupmembers
+package wxzs_contact_rpc
 
 import (
 	fmt "fmt"
@@ -55,7 +55,7 @@ func NewQueryService(name string, c client.Client) QueryService {
 		c = client.NewClient()
 	}
 	if len(name) == 0 {
-		name = "grpcwxgroupmembers"
+		name = "wxzs.contact.rpc"
 	}
 	return &queryService{
 		c:    c,
