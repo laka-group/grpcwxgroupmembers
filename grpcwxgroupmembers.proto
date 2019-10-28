@@ -17,7 +17,7 @@ service Query {
 message SelectGroupMembersOrm {
     // 类型 字段 = 标识号
     repeated string GroupIdIn = 1; // where条件 group_id in (???)
-    //repeated string WxidIn = 2; // where条件 wxid in (???)
+    repeated string WxidIn = 2; // where条件 wxid in (???)
     string Select = 3; // select字段，默认*
     string WhereStatus = 4; // 查询条件现在只支持status, 空字符串就不加status条件
 }
